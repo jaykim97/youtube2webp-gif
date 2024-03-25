@@ -1,0 +1,4 @@
+Pipfile
+*.mp4
+/exampleframes
+*.png
