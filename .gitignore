@@ -5,3 +5,4 @@ Pipfile
 __pycache__
 *.gif
 *.webp
+.DS_Store
