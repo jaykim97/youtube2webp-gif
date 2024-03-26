@@ -1,0 +1,7 @@
+Pipfile
+*.mp4
+/exampleframes
+*.png
+__pycache__
+*.gif
+*.webp
