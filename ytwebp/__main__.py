@@ -8,9 +8,9 @@ if __name__ == "__main__":
         test_url = sys.argv[1]
     except:
         test_url = "https://youtu.be/lymwKICWEsA?si=NOhswUENAVFS_mVB"
-    output = "output"
-    video_url = "temp.mp4"
-    youtube_downloader.download_video(test_url, "00:00:00", 2, "temp")
-    duration = frame_extractor.get_video_duration_seconds(video_url) 
-    frames = frame_extractor.extract_frames(video_url)
-    animator.animate_images_array(frames, duration, output)
+    
+    
+    test_url = youtube_downloader.extract_video_url(test_url)
+    process = youtube_downloader.download_video(test_url, duration=2)
+    frames = frame_extractor.extract_frames(test_url, process)
+    animator.animate_images_array(frames, 2, "output")
