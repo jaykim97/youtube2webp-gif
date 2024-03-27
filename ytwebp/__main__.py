@@ -11,6 +11,6 @@ if __name__ == "__main__":
     
     
     test_url = youtube_downloader.extract_video_url(test_url)
-    process = youtube_downloader.download_video(test_url, duration=2)
+    process = youtube_downloader.download_video(test_url, duration=4)
     frames = frame_extractor.extract_frames(test_url, process)
-    animator.animate_images_array(frames, 2, "output")
+    animator.animate_images_array(frames, "output2")
