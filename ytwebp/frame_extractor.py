@@ -3,13 +3,10 @@ from typing import List
 from PIL.Image import Image 
 from PIL import Image as Img
 from subprocess import Popen
-import ffmpeg
 import numpy as np
 
 
-def extract_frames(url: str, process: Popen) -> List[Image]:
-    probe = ffmpeg.probe(url)
-    video_info = next(s for s in probe['streams'] if s['codec_type'] == 'video')
+def extract_frames(process: Popen, video_info: dict) -> List[Image]:
     width = int(video_info['width'])
     height = int(video_info['height'])
     frames = []
