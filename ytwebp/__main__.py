@@ -13,10 +13,11 @@ if __name__ == "__main__":
     
     test_url = utils.extract_video_url(test_url)
     print("video url extracted")
-    process = youtube_downloader.download_video(test_url, duration=4)
+    process = youtube_downloader.download_video(test_url)
     print("video extraction complete")
     video_info = utils.extract_video_info(test_url)
     print("video info extration complete")
     frames = frame_extractor.extract_frames(process,video_info)
+    fps = utils.get_frame_rates(video_info)
     print("frame extraction complete")
-    animator.animate_images_array(frames, "output2")
+    animator.animate_images_array(frames, fps, "output1")

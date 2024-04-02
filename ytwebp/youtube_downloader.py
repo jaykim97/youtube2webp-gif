@@ -7,7 +7,7 @@ from subprocess import Popen
 RES_LIST = ["1080p","720p", "480p", "360p"]
 
 
-def download_video(url: str, start_time: Optional[str] = None, duration: Optional[InterruptedError] = None) -> Popen:
+def download_video(url: str, start_time: Optional[str] = None, duration: Optional[int] = None) -> Popen:
     start_time = {"ss": start_time} if start_time is not None else {}
     duration = {"t": duration} if duration is not None else {}
     process = (
