@@ -3,19 +3,20 @@ import animator
 import youtube_downloader
 import sys
 import utils
+import argparse
 
 if __name__ == "__main__":
-    try:
-        test_url = sys.argv[1]
-    except:
-        test_url = "https://youtu.be/lymwKICWEsA?si=NOhswUENAVFS_mVB"
+    parser = argparse.ArgumentParser(description="Turn section of youtube video into animated webp")
+    parser.add_argument('url', help='URL of the YouTube video to process')
+    parser.add_argument('-s', '--start-time', help='Start time for the video (format: HH:MM:SS)')
+    parser.add_argument('-d', '--duration', type=int, help='Duration of the video to process (in seconds)')
+    args = parser.parse_args()
     
-    
-    test_url = utils.extract_video_url(test_url)
+    url = utils.extract_video_url(args.url)
     print("video url extracted")
-    process = youtube_downloader.download_video(test_url)
+    process = youtube_downloader.download_video(url)
     print("video extraction complete")
-    video_info = utils.extract_video_info(test_url)
+    video_info = utils.extract_video_info(url)
     print("video info extration complete")
     frames = frame_extractor.extract_frames(process,video_info)
     fps = utils.get_frame_rates(video_info)
