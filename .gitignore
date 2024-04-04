@@ -6,3 +6,4 @@ __pycache__
 *.gif
 *.webp
 .DS_Store
+.vscode
